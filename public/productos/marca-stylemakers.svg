@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="520" viewBox="0 0 700 520">
+  <rect width="700" height="520" rx="38" fill="#ffffff"/>
+  <rect x="28" y="28" width="644" height="464" rx="34" fill="#fde68a" opacity="0.32"/>
+  <circle cx="350" cy="210" r="112" fill="#fde68a"/>
+  <text x="350" y="235" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="800" fill="#111827">S</text>
+  <text x="350" y="365" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#111827">STYLEMAKERS</text>
+  <text x="350" y="410" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#6b7280">Producto de catálogo</text>
+</svg>
