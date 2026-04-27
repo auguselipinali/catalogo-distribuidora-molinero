@@ -1,6 +1,10 @@
+const rutaAsset = (ruta) => `${import.meta.env.BASE_URL}${ruta.replace(/^\/+/, '')}`
+
 export const DISTRIBUIDORA = {
   nombre: 'Distribuidora Molinero',
-  telefonoWhatsApp: '5492640000000', // Cambiar por tu número. Formato Argentina: 549 + característica + número.
+  telefonoWhatsApp: '5492644530666',
   direccion: 'San Juan, Argentina',
-  logo: '/logo-distribuidora.jpeg',
+  logo: rutaAsset('logo-distribuidora.jpeg'),
 }
+
+
