@@ -1,0 +1,8 @@
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="600" rx="48" fill="#f8fafc"/>
+  <rect x="48" y="48" width="504" height="504" rx="42" fill="#ffffff" stroke="#14b8a6" stroke-width="10"/>
+  <circle cx="300" cy="210" r="72" fill="#14b8a6" opacity="0.16"/>
+  <path d="M235 250 C250 170, 350 170, 365 250 C375 310, 335 360, 300 398 C265 360, 225 310, 235 250Z" fill="#14b8a6"/>
+  <text x="300" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="800" fill="#0f172a">FRILAYP</text>
+  <text x="300" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#64748b">Distribuidora Molinero</text>
+</svg>
