@@ -13,6 +13,7 @@ function normalizarTexto(texto) {
 
 function App() {
   const [busqueda, setBusqueda] = useState('')
+  const [marcaSeleccionada, setMarcaSeleccionada] = useState('TODAS')
   const [carrito, setCarrito] = useState([])
   const [cliente, setCliente] = useState({
     nombre: '',
@@ -20,16 +21,28 @@ function App() {
     direccion: '',
     observacion: '',
   })
+  const [pedidoAbierto, setPedidoAbierto] = useState(false)
+
+  const marcas = useMemo(() => {
+    const marcasUnicas = [...new Set(productosIniciales.map((producto) => producto.marca))]
+    return ['TODAS', ...marcasUnicas.sort()]
+  }, [])
 
   const productosFiltrados = useMemo(() => {
     const texto = normalizarTexto(busqueda.trim())
-    if (!texto) return productosIniciales
 
     return productosIniciales.filter((producto) => {
-      const contenido = normalizarTexto(`${producto.marca} ${producto.categoria || ''} ${producto.nombre}`)
-      return contenido.includes(texto)
+      const contenido = normalizarTexto(
+        `${producto.marca} ${producto.categoria || ''} ${producto.nombre}`,
+      )
+
+      const coincideBusqueda = texto === '' || contenido.includes(texto)
+      const coincideMarca =
+        marcaSeleccionada === 'TODAS' || producto.marca === marcaSeleccionada
+
+      return coincideBusqueda && coincideMarca
     })
-  }, [busqueda])
+  }, [busqueda, marcaSeleccionada])
 
   const productosPorMarca = useMemo(() => {
     return productosFiltrados.reduce((grupos, producto) => {
@@ -42,9 +55,15 @@ function App() {
   const totalProductos = productosIniciales.length
   const totalMarcas = new Set(productosIniciales.map((producto) => producto.marca)).size
 
+  const cantidadTotalPedido = carrito.reduce(
+    (total, item) => total + item.cantidad,
+    0,
+  )
+
   function agregarProducto(producto) {
     setCarrito((actual) => {
       const existe = actual.find((item) => item.id === producto.id)
+
       if (existe) {
         return actual.map((item) =>
           item.id === producto.id
@@ -52,12 +71,14 @@ function App() {
             : item,
         )
       }
+
       return [...actual, { ...producto, cantidad: 1 }]
     })
   }
 
   function cambiarCantidad(id, nuevaCantidad) {
     const cantidad = Number(nuevaCantidad)
+
     if (cantidad <= 0) {
       quitarProducto(id)
       return
@@ -139,6 +160,7 @@ function App() {
     y += 7
 
     doc.setFont('helvetica', 'normal')
+
     carrito.forEach((item) => {
       const nombreLineas = doc.splitTextToSize(item.nombre, 105)
       const alto = Math.max(7, nombreLineas.length * 5)
@@ -177,7 +199,8 @@ function App() {
       .map((item) => `• ${item.marca} - ${item.nombre} x${item.cantidad}`)
       .join('\n')
 
-    const mensaje = `Hola, quiero realizar este pedido:\n\n` +
+    const mensaje =
+      `Hola, quiero realizar este pedido:\n\n` +
       `Cliente: ${cliente.nombre || '-'}\n` +
       `Teléfono: ${cliente.telefono || '-'}\n` +
       `Dirección: ${cliente.direccion || '-'}\n\n` +
@@ -188,11 +211,94 @@ function App() {
     window.open(url, '_blank')
   }
 
+  function PedidoContenido() {
+    return (
+      <>
+        {carrito.length === 0 ? (
+          <p className="vacio">Todavía no agregaste productos.</p>
+        ) : (
+          <div className="items">
+            {carrito.map((item) => (
+              <div className="pedido-item" key={item.id}>
+                <div>
+                  <span>{item.marca}</span>
+                  <strong>{item.nombre}</strong>
+                </div>
+
+                <input
+                  type="number"
+                  min="1"
+                  value={item.cantidad}
+                  onChange={(e) => cambiarCantidad(item.id, e.target.value)}
+                />
+
+                <button className="btn-icon" onClick={() => quitarProducto(item.id)}>
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="cliente-form">
+          <h3>Datos del cliente</h3>
+
+          <input
+            placeholder="Nombre y apellido"
+            value={cliente.nombre}
+            onChange={(e) => setCliente({ ...cliente, nombre: e.target.value })}
+          />
+
+          <input
+            placeholder="Teléfono"
+            value={cliente.telefono}
+            onChange={(e) => setCliente({ ...cliente, telefono: e.target.value })}
+          />
+
+          <input
+            placeholder="Dirección / zona"
+            value={cliente.direccion}
+            onChange={(e) => setCliente({ ...cliente, direccion: e.target.value })}
+          />
+
+          <textarea
+            placeholder="Observación"
+            value={cliente.observacion}
+            onChange={(e) => setCliente({ ...cliente, observacion: e.target.value })}
+          />
+        </div>
+
+        <div className="acciones">
+          <button className="btn-secundario" onClick={descargarPDF}>
+            Descargar PDF
+          </button>
+
+{/*           <button className="btn-principal" onClick={enviarPorWhatsApp}>
+            Enviar por WhatsApp
+          </button> */}
+
+          <button className="btn-limpiar" onClick={limpiarPedido}>
+            Limpiar pedido
+          </button>
+        </div>
+
+        <p className="nota">
+          Nota: Descarga el pedido desde el botón "Descargar PDF" y envialo por WhatsApp.
+        </p>
+      </>
+    )
+  }
+
   return (
     <main className="app">
       <header className="hero">
         <div className="hero-brand">
-          <img className="logo" src={DISTRIBUIDORA.logo} alt={DISTRIBUIDORA.nombre} />
+          <img
+            className="logo"
+            src={DISTRIBUIDORA.logo}
+            alt={DISTRIBUIDORA.nombre}
+          />
+
           <div>
             <p className="eyebrow">Catálogo digital</p>
             <h1>{DISTRIBUIDORA.nombre}</h1>
@@ -201,8 +307,9 @@ function App() {
             </p>
           </div>
         </div>
+
         <div className="hero-card">
-          <strong>{carrito.length}</strong>
+          <strong>{cantidadTotalPedido}</strong>
           <span>productos en pedido</span>
         </div>
       </header>
@@ -212,14 +319,29 @@ function App() {
           <div className="section-header">
             <div>
               <h2>Productos</h2>
-              <p>{totalProductos} productos cargados, organizados por {totalMarcas} marcas.</p>
+              <p>
+                {totalProductos} productos cargados, organizados por {totalMarcas} marcas.
+              </p>
             </div>
+
             <input
               type="search"
               placeholder="Buscar producto o marca..."
               value={busqueda}
               onChange={(e) => setBusqueda(e.target.value)}
             />
+          </div>
+
+          <div className="filtros-marcas">
+            {marcas.map((marca) => (
+              <button
+                key={marca}
+                className={marcaSeleccionada === marca ? 'marca-activa' : ''}
+                onClick={() => setMarcaSeleccionada(marca)}
+              >
+                {marca}
+              </button>
+            ))}
           </div>
 
           {Object.entries(productosPorMarca).length === 0 ? (
@@ -232,15 +354,35 @@ function App() {
                     <span>Marca</span>
                     <h2>{marca}</h2>
                   </div>
+
                   <strong>{productos.length} productos</strong>
                 </div>
 
                 <div className="productos-grid">
                   {productos.map((producto) => (
                     <article className="producto-card" key={producto.id}>
-                      <img src={producto.imagen} alt={producto.nombre} />
+                      <img
+                        src={
+                          producto.id >= 77 && producto.id <= 173
+                            ? `${import.meta.env.BASE_URL}productos-reales/tinturas-colormaster.webp`
+                        : producto.id >= 186 && producto.id <= 242
+                            ? `${import.meta.env.BASE_URL}productos-reales/tinturas-fithocolor.webp`
+                        : producto.id >= 243 && producto.id <= 261
+                            ? `${import.meta.env.BASE_URL}productos-reales/tinturas-cielo.webp`
+                        : producto.id >= 262 && producto.id <= 320
+                            ? `${import.meta.env.BASE_URL}productos-reales/tinturas-otowil.webp`                            
+                            : `${import.meta.env.BASE_URL}productos-reales/${producto.id}.webp`
+                        }
+                        alt={producto.nombre}
+                        onError={(e) => {
+                          e.currentTarget.onerror = null
+                          e.currentTarget.src = producto.imagen || DISTRIBUIDORA.logo
+                        }}
+                      />                      
+
                       <p className="producto-marca">{producto.marca}</p>
                       <h3>{producto.nombre}</h3>
+
                       <button onClick={() => agregarProducto(producto)}>
                         Agregar al pedido
                       </button>
@@ -254,73 +396,41 @@ function App() {
 
         <aside className="pedido-panel">
           <h2>Pedido</h2>
-
-          {carrito.length === 0 ? (
-            <p className="vacio">Todavía no agregaste productos.</p>
-          ) : (
-            <div className="items">
-              {carrito.map((item) => (
-                <div className="pedido-item" key={item.id}>
-                  <div>
-                    <span>{item.marca}</span>
-                    <strong>{item.nombre}</strong>
-                  </div>
-                  <input
-                    type="number"
-                    min="1"
-                    value={item.cantidad}
-                    onChange={(e) => cambiarCantidad(item.id, e.target.value)}
-                  />
-                  <button className="btn-icon" onClick={() => quitarProducto(item.id)}>
-                    ×
-                  </button>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <div className="cliente-form">
-            <h3>Datos del cliente</h3>
-            <input
-              placeholder="Nombre y apellido"
-              value={cliente.nombre}
-              onChange={(e) => setCliente({ ...cliente, nombre: e.target.value })}
-            />
-            <input
-              placeholder="Teléfono"
-              value={cliente.telefono}
-              onChange={(e) => setCliente({ ...cliente, telefono: e.target.value })}
-            />
-            <input
-              placeholder="Dirección / zona"
-              value={cliente.direccion}
-              onChange={(e) => setCliente({ ...cliente, direccion: e.target.value })}
-            />
-            <textarea
-              placeholder="Observación"
-              value={cliente.observacion}
-              onChange={(e) => setCliente({ ...cliente, observacion: e.target.value })}
-            />
-          </div>
-
-          <div className="acciones">
-            <button className="btn-secundario" onClick={descargarPDF}>
-              Descargar PDF
-            </button>
-            <button className="btn-principal" onClick={enviarPorWhatsApp}>
-              Enviar por WhatsApp
-            </button>
-            <button className="btn-limpiar" onClick={limpiarPedido}>
-              Limpiar pedido
-            </button>
-          </div>
-
-          <p className="nota">
-            Nota: esta versión no muestra precios. El pedido se genera con marca,
-            nombre del producto y cantidad.
-          </p>
+          <PedidoContenido />
         </aside>
       </section>
+
+      <button
+        className="boton-pedido-mobile"
+        onClick={() => setPedidoAbierto()}
+      >
+        🛒 Ver pedido ({cantidadTotalPedido})
+      </button>
+
+      {pedidoAbierto && (
+        <div
+          className="pedido-modal-overlay"
+          onClick={() => setPedidoAbierto(false)}
+        >
+          <div
+            className="pedido-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="pedido-modal-header">
+              <h2>Pedido</h2>
+
+              <button
+                className="cerrar-pedido"
+                onClick={() => setPedidoAbierto(false)}
+              >
+                Cerrar
+              </button>
+            </div>
+
+            <PedidoContenido />
+          </div>
+        </div>
+      )}
     </main>
   )
 }
