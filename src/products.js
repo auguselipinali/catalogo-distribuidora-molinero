@@ -5129,13 +5129,13 @@ export const productosIniciales = [
   {
     id: 749,
     marca: "FRILAYP",
-    nombre: "ACONCICIONADOR COCO x 370 cc",
+    nombre: "ACONDICIONADOR COCO x 370 cc",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
   {
     id: 750,
     marca: "FRILAYP",
-    nombre: "ACONCICIONADOR COCO x 970 cc",
+    nombre: "ACONDICIONADOR COCO x 970 cc",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
   {
