@@ -361,6 +361,8 @@ const renderPedidoContenido = () => (
                   {productos.map((producto) => (
                     <article className="producto-card" key={producto.id}>
                       <img
+                        loading="lazy"
+                        decoding="async"
                         src={
                           producto.id >= 77 && producto.id <= 173
                             ? `${import.meta.env.BASE_URL}productos-reales/tinturas-colormaster.webp`

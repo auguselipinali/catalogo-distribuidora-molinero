@@ -6422,4 +6422,10 @@ export const productosIniciales = [
   nombre: "Alisado x500ml",
   imagen: rutaImagen("productos/liso-donna.svg"),
 },
+{
+  id: 965,
+  marca: "VARIOS",
+  nombre: "Gorro Tycel sin perforado",
+  imagen: rutaImagen("productos/varios.svg"),
+}
 ]
