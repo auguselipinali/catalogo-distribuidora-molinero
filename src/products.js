@@ -5072,7 +5072,7 @@ export const productosIniciales = [
     nombre: "Shampoo Cabellos Teñidos 900ml",
     imagen: rutaImagen("productos/marca-caviar.svg"),
   },
-  {
+/*   {
     id: 740,
     marca: "STYLEMAKERS",
     nombre: "Gorro Capilar Multifunción - 20% DESCUENTO POR CAJA CERRADA 24",
@@ -5083,7 +5083,7 @@ export const productosIniciales = [
     marca: "STYLEMAKERS",
     nombre: "Gorro Capilar Multifunción - Por Unidad 1",
     imagen: rutaImagen("productos/marca-stylemakers.svg"),
-  },
+  }, */
   {
     id: 742,
     marca: "SCOTLAND",
@@ -6425,7 +6425,7 @@ export const productosIniciales = [
 {
   id: 965,
   marca: "VARIOS",
-  nombre: "Gorro Tycel sin perforado",
+  nombre: "Gorro Tycel para claritos sin perforado",
   imagen: rutaImagen("productos/varios.svg"),
 }
 ]

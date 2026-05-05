@@ -126,6 +126,10 @@ button {
   box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
 }
 
+.catalogo {
+  overflow: visible;
+}
+
 .pedido-panel {
   position: sticky;
   top: 20px;
@@ -151,6 +155,8 @@ button {
 .pedido-panel::-webkit-scrollbar-thumb:hover {
   background: #0f766e;
 }
+
+/* HEADER DE SECCIÓN */
 
 .section-header {
   display: flex;
@@ -187,18 +193,29 @@ button {
   box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.12);
 }
 
-/* FILTROS */
+/* FILTROS DE MARCAS */
 
 .filtros-marcas {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 10px;
-  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
   padding: 12px 0 18px;
   margin-bottom: 10px;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+}
+
+.filtros-marcas::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .filtros-marcas button {
+  flex: 0 0 auto;
   border: 1px solid #dbe3ea;
   background: #ffffff;
   color: #111827;
@@ -213,6 +230,7 @@ button {
 .filtros-marcas button:hover {
   transform: translateY(-1px);
   border-color: #14b8a6;
+  box-shadow: 0 8px 20px rgba(20, 184, 166, 0.12);
 }
 
 .filtros-marcas button.marca-activa {
@@ -283,18 +301,19 @@ button {
   box-shadow: 0 18px 35px rgba(15, 23, 42, 0.09);
 }
 
-/* IMAGEN DEL PRODUCTO LIMPIA */
+/* IMÁGENES DE PRODUCTOS */
 
 .producto-card img {
   width: 100%;
-  height: 180px;
+  height: 190px;
   object-fit: contain;
-  background: transparent;
+  background: #ffffff;
   border: none;
   border-radius: 0;
   box-shadow: none;
-  padding: 0;
+  padding: 6px;
   margin-bottom: 14px;
+  mix-blend-mode: multiply;
 }
 
 .producto-marca {
@@ -459,7 +478,7 @@ button {
   line-height: 1.4;
 }
 
-/* MOBILE */
+/* MOBILE BASE */
 
 .boton-pedido-mobile {
   display: none;
@@ -468,6 +487,8 @@ button {
 .pedido-modal-overlay {
   display: none;
 }
+
+/* TABLET */
 
 @media (max-width: 1024px) {
   .layout {
@@ -482,6 +503,8 @@ button {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* CELULAR */
 
 @media (max-width: 768px) {
   body {
@@ -542,6 +565,7 @@ button {
     width: 100%;
     padding: 18px;
     border-radius: 22px;
+    overflow: hidden;
   }
 
   .section-header {
@@ -561,10 +585,28 @@ button {
     position: sticky;
     top: 0;
     z-index: 20;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
     background: #ffffff;
     padding: 12px 0;
     margin-left: -2px;
     margin-right: -2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filtros-marcas::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  .filtros-marcas button {
+    flex: 0 0 auto;
   }
 
   .marca-header {
@@ -589,12 +631,12 @@ button {
   }
 
   .producto-card img {
-    height: 180px;
-    background: transparent;
+    height: 185px;
+    padding: 4px;
+    background: #ffffff;
     border: none;
     border-radius: 0;
     box-shadow: none;
-    padding: 0;
   }
 
   .pedido-panel {
@@ -607,7 +649,7 @@ button {
     left: 16px;
     right: 16px;
     bottom: 16px;
-    z-index: 1000;
+    z-index: 2500;
     padding: 16px;
     border: none;
     border-radius: 18px;
@@ -618,11 +660,11 @@ button {
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
   }
 
-  .pedido-modal-overlay {
+  .pedido-modal-overlay.activo {
     display: flex;
     position: fixed;
     inset: 0;
-    z-index: 2000;
+    z-index: 3000;
     background: rgba(15, 23, 42, 0.58);
     align-items: flex-end;
   }
@@ -672,28 +714,4 @@ button {
   .acciones button {
     width: 100%;
   }
-  @media (max-width: 768px) {
-  .pedido-modal-overlay.activo {
-    display: flex !important;
-    position: fixed;
-    inset: 0;
-    z-index: 3000;
-    background: rgba(15, 23, 42, 0.58);
-    align-items: flex-end;
-  }
-
-  .pedido-modal {
-    width: 100%;
-    max-height: 88vh;
-    overflow-y: auto;
-    background: #ffffff;
-    border-radius: 26px 26px 0 0;
-    padding: 18px;
-    box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.25);
-  }
-
-  .boton-pedido-mobile {
-    z-index: 2500;
-  }
-}
 }
