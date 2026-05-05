@@ -211,9 +211,8 @@ function App() {
     window.open(url, '_blank')
   }
 
-  function PedidoContenido() {
-    return (
-      <>
+const renderPedidoContenido = () => (
+  <>
         {carrito.length === 0 ? (
           <p className="vacio">Todavía no agregaste productos.</p>
         ) : (
@@ -287,7 +286,7 @@ function App() {
         </p>
       </>
     )
-  }
+  
 
   return (
     <main className="app">
@@ -370,7 +369,9 @@ function App() {
                         : producto.id >= 243 && producto.id <= 261
                             ? `${import.meta.env.BASE_URL}productos-reales/tinturas-cielo.webp`
                         : producto.id >= 262 && producto.id <= 320
-                            ? `${import.meta.env.BASE_URL}productos-reales/tinturas-otowil.webp`                            
+                            ? `${import.meta.env.BASE_URL}productos-reales/tinturas-otowil.webp`
+                        : producto.id >= 865 && producto.id <= 954
+                            ? `${import.meta.env.BASE_URL}productos-reales/tinturas-primont.webp`                              
                             : `${import.meta.env.BASE_URL}productos-reales/${producto.id}.webp`
                         }
                         alt={producto.nombre}
@@ -396,41 +397,42 @@ function App() {
 
         <aside className="pedido-panel">
           <h2>Pedido</h2>
-          <PedidoContenido />
+          {renderPedidoContenido()}
         </aside>
       </section>
 
       <button
         className="boton-pedido-mobile"
-        onClick={() => setPedidoAbierto()}
+        onClick={() => setPedidoAbierto(true)}
       >
         🛒 Ver pedido ({cantidadTotalPedido})
       </button>
 
-      {pedidoAbierto && (
-        <div
-          className="pedido-modal-overlay"
+{pedidoAbierto && (
+  <div
+    className="pedido-modal-overlay activo"
+    onClick={() => setPedidoAbierto(false)}
+  >
+    <div
+      className="pedido-modal"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <div className="pedido-modal-header">
+        <h2>Pedido</h2>
+
+        <button
+          type="button"
+          className="cerrar-pedido"
           onClick={() => setPedidoAbierto(false)}
         >
-          <div
-            className="pedido-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="pedido-modal-header">
-              <h2>Pedido</h2>
+          Cerrar
+        </button>
+      </div>
 
-              <button
-                className="cerrar-pedido"
-                onClick={() => setPedidoAbierto(false)}
-              >
-                Cerrar
-              </button>
-            </div>
-
-            <PedidoContenido />
-          </div>
-        </div>
-      )}
+      {renderPedidoContenido()}
+    </div>
+  </div>
+)}
     </main>
   )
 }
