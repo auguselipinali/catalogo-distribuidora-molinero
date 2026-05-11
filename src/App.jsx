@@ -97,6 +97,24 @@ function App() {
     setCarrito([])
     setCliente({ nombre: '', telefono: '', direccion: '', observacion: '' })
   }
+  function obtenerCantidadEnCarrito(id) {
+  return carrito.find((item) => item.id === id)?.cantidad || 0
+}
+
+function sumarDesdeCatalogo(producto) {
+  agregarProducto(producto)
+}
+
+function restarDesdeCatalogo(producto) {
+  const cantidadActual = obtenerCantidadEnCarrito(producto.id)
+
+  if (cantidadActual <= 1) {
+    quitarProducto(producto.id)
+    return
+  }
+
+  cambiarCantidad(producto.id, cantidadActual - 1)
+}
 
   async function obtenerImagenBase64(url) {
     try {
@@ -386,9 +404,36 @@ const renderPedidoContenido = () => (
                       <p className="producto-marca">{producto.marca}</p>
                       <h3>{producto.nombre}</h3>
 
-                      <button onClick={() => agregarProducto(producto)}>
-                        Agregar al pedido
-                      </button>
+                      {obtenerCantidadEnCarrito(producto.id) === 0 ? (
+                        <button
+                          className="btn-agregar-producto"
+                          onClick={() => agregarProducto(producto)}
+                        >
+                         Agregar al pedido
+                        </button>
+                      ) : (
+                        <div className="producto-contador">
+                          <button
+                            type="button"
+                            className="btn-cantidad-producto"
+                            onClick={() => restarDesdeCatalogo(producto)}
+                          >
+                            −
+                          </button>
+
+                          <div className="cantidad-producto">
+                            {obtenerCantidadEnCarrito(producto.id)} un
+                         </div>
+
+                          <button
+                            type="button"
+                            className="btn-cantidad-producto"
+                            onClick={() => sumarDesdeCatalogo(producto)}
+                          >
+                            +
+                          </button>
+                        </div>
+                      )}
                     </article>
                   ))}
                 </div>
