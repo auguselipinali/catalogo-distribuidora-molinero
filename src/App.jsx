@@ -54,11 +54,7 @@ function App() {
 
   const totalProductos = productosIniciales.length
   const totalMarcas = new Set(productosIniciales.map((producto) => producto.marca)).size
-
-  const cantidadTotalPedido = carrito.reduce(
-    (total, item) => total + item.cantidad,
-    0,
-  )
+  const cantidadTotalPedido = carrito.reduce((total, item) => total + item.cantidad, 0)
 
   function agregarProducto(producto) {
     setCarrito((actual) => {
@@ -79,13 +75,19 @@ function App() {
   function cambiarCantidad(id, nuevaCantidad) {
     const cantidad = Number(nuevaCantidad)
 
+    if (!Number.isFinite(cantidad)) return
+
     if (cantidad <= 0) {
       quitarProducto(id)
       return
     }
 
     setCarrito((actual) =>
-      actual.map((item) => (item.id === id ? { ...item, cantidad } : item)),
+      actual.map((item) =>
+        item.id === id
+          ? { ...item, cantidad: Math.floor(cantidad) }
+          : item,
+      ),
     )
   }
 
@@ -95,26 +97,81 @@ function App() {
 
   function limpiarPedido() {
     setCarrito([])
-    setCliente({ nombre: '', telefono: '', direccion: '', observacion: '' })
+    setCliente({
+      nombre: '',
+      telefono: '',
+      direccion: '',
+      observacion: '',
+    })
   }
+
   function obtenerCantidadEnCarrito(id) {
-  return carrito.find((item) => item.id === id)?.cantidad || 0
-}
-
-function sumarDesdeCatalogo(producto) {
-  agregarProducto(producto)
-}
-
-function restarDesdeCatalogo(producto) {
-  const cantidadActual = obtenerCantidadEnCarrito(producto.id)
-
-  if (cantidadActual <= 1) {
-    quitarProducto(producto.id)
-    return
+    return carrito.find((item) => item.id === id)?.cantidad || 0
   }
 
-  cambiarCantidad(producto.id, cantidadActual - 1)
-}
+  function sumarDesdeCatalogo(producto) {
+    agregarProducto(producto)
+  }
+
+  function restarDesdeCatalogo(producto) {
+    const cantidadActual = obtenerCantidadEnCarrito(producto.id)
+
+    if (cantidadActual <= 1) {
+      quitarProducto(producto.id)
+      return
+    }
+
+    cambiarCantidad(producto.id, cantidadActual - 1)
+  }
+
+  function actualizarCantidadDesdeCatalogo(producto, valor) {
+    if (valor === '') return
+
+    const cantidad = Number(valor)
+
+    if (!Number.isFinite(cantidad)) return
+
+    if (cantidad <= 0) {
+      quitarProducto(producto.id)
+      return
+    }
+
+    cambiarCantidad(producto.id, Math.floor(cantidad))
+  }
+
+  function actualizarCantidadDesdePedido(id, valor) {
+    if (valor === '') return
+
+    const cantidad = Number(valor)
+
+    if (!Number.isFinite(cantidad)) return
+
+    cambiarCantidad(id, Math.floor(cantidad))
+  }
+
+  function obtenerImagenProducto(producto) {
+    if (producto.id >= 77 && producto.id <= 173) {
+      return `${import.meta.env.BASE_URL}productos-reales/tinturas-colormaster.webp`
+    }
+
+    if (producto.id >= 186 && producto.id <= 242) {
+      return `${import.meta.env.BASE_URL}productos-reales/tinturas-fithocolor.webp`
+    }
+
+    if (producto.id >= 243 && producto.id <= 261) {
+      return `${import.meta.env.BASE_URL}productos-reales/tinturas-cielo.webp`
+    }
+
+    if (producto.id >= 262 && producto.id <= 320) {
+      return `${import.meta.env.BASE_URL}productos-reales/tinturas-otowil.webp`
+    }
+
+    if (producto.id >= 865 && producto.id <= 954) {
+      return `${import.meta.env.BASE_URL}productos-reales/tinturas-primont.webp`
+    }
+
+    return `${import.meta.env.BASE_URL}productos-reales/${producto.id}.webp`
+  }
 
   async function obtenerImagenBase64(url) {
     try {
@@ -132,11 +189,22 @@ function restarDesdeCatalogo(producto) {
     }
   }
 
-  async function crearPDF() {
+  function validarPedido() {
     if (carrito.length === 0) {
       alert('Agregá productos al pedido antes de generar el PDF.')
-      return null
+      return false
     }
+
+    if (!cliente.nombre.trim()) {
+      alert('Ingresá el nombre del cliente/local antes de finalizar el pedido.')
+      return false
+    }
+
+    return true
+  }
+
+  async function crearPDF() {
+    if (!validarPedido()) return null
 
     const doc = new jsPDF()
     const fecha = new Date().toLocaleString('es-AR')
@@ -171,6 +239,7 @@ function restarDesdeCatalogo(producto) {
     doc.text('Productos solicitados', 14, 103)
 
     let y = 115
+
     doc.setFontSize(10)
     doc.text('Marca', 14, y)
     doc.text('Producto', 48, y)
@@ -203,108 +272,99 @@ function restarDesdeCatalogo(producto) {
     const doc = await crearPDF()
     if (!doc) return
 
-    const nombreCliente = cliente.nombre.trim() || 'cliente'
+    const nombreCliente = cliente.nombre.trim()
     doc.save(`pedido-${nombreCliente}.pdf`)
   }
 
-  function enviarPorWhatsApp() {
-    if (carrito.length === 0) {
-      alert('Agregá productos al pedido antes de enviarlo.')
-      return
-    }
-
-    const lineasProductos = carrito
-      .map((item) => `• ${item.marca} - ${item.nombre} x${item.cantidad}`)
-      .join('\n')
-
-    const mensaje =
-      `Hola, quiero realizar este pedido:\n\n` +
-      `Cliente: ${cliente.nombre || '-'}\n` +
-      `Teléfono: ${cliente.telefono || '-'}\n` +
-      `Dirección: ${cliente.direccion || '-'}\n\n` +
-      `Productos:\n${lineasProductos}\n\n` +
-      `Observación: ${cliente.observacion || '-'}`
-
-    const url = `https://wa.me/${DISTRIBUIDORA.telefonoWhatsApp}?text=${encodeURIComponent(mensaje)}`
-    window.open(url, '_blank')
-  }
-
-const renderPedidoContenido = () => (
-  <>
-        {carrito.length === 0 ? (
-          <p className="vacio">Todavía no agregaste productos.</p>
-        ) : (
-          <div className="items">
-            {carrito.map((item) => (
-              <div className="pedido-item" key={item.id}>
-                <div>
-                  <span>{item.marca}</span>
-                  <strong>{item.nombre}</strong>
-                </div>
-
-                <input
-                  type="number"
-                  min="1"
-                  value={item.cantidad}
-                  onChange={(e) => cambiarCantidad(item.id, e.target.value)}
-                />
-
-                <button className="btn-icon" onClick={() => quitarProducto(item.id)}>
-                  ×
-                </button>
+  const renderPedidoContenido = () => (
+    <>
+      {carrito.length === 0 ? (
+        <p className="vacio">Todavía no agregaste productos.</p>
+      ) : (
+        <div className="items">
+          {carrito.map((item) => (
+            <div className="pedido-item" key={item.id}>
+              <div>
+                <span>{item.marca}</span>
+                <strong>{item.nombre}</strong>
               </div>
-            ))}
-          </div>
-        )}
 
-        <div className="cliente-form">
-          <h3>Datos del cliente</h3>
+              <input
+                type="number"
+                min="1"
+                step="1"
+                value={item.cantidad}
+                onChange={(e) => actualizarCantidadDesdePedido(item.id, e.target.value)}
+                onFocus={(e) => e.target.select()}
+              />
 
-          <input
-            placeholder="Nombre y apellido"
-            value={cliente.nombre}
-            onChange={(e) => setCliente({ ...cliente, nombre: e.target.value })}
-          />
-
-          <input
-            placeholder="Teléfono"
-            value={cliente.telefono}
-            onChange={(e) => setCliente({ ...cliente, telefono: e.target.value })}
-          />
-
-          <input
-            placeholder="Dirección / zona"
-            value={cliente.direccion}
-            onChange={(e) => setCliente({ ...cliente, direccion: e.target.value })}
-          />
-
-          <textarea
-            placeholder="Observación"
-            value={cliente.observacion}
-            onChange={(e) => setCliente({ ...cliente, observacion: e.target.value })}
-          />
+              <button
+                type="button"
+                className="btn-icon"
+                onClick={() => quitarProducto(item.id)}
+              >
+                ×
+              </button>
+            </div>
+          ))}
         </div>
+      )}
 
-        <div className="acciones">
-          <button className="btn-secundario" onClick={descargarPDF}>
-            Descargar PDF
-          </button>
+      <div className="cliente-form">
+        <h3>
+          Datos del cliente
+          <span className="campo-obligatorio">*Nombre obligatorio</span>
+        </h3>
 
-{/*           <button className="btn-principal" onClick={enviarPorWhatsApp}>
-            Enviar por WhatsApp
-          </button> */}
+        <input
+          required
+          placeholder="Nombre del cliente/local*"
+          value={cliente.nombre}
+          onChange={(e) => setCliente({ ...cliente, nombre: e.target.value })}
+        />
 
-          <button className="btn-limpiar" onClick={limpiarPedido}>
-            Limpiar pedido
-          </button>
-        </div>
+        <input
+          placeholder="Teléfono"
+          value={cliente.telefono}
+          onChange={(e) => setCliente({ ...cliente, telefono: e.target.value })}
+        />
 
-        <p className="nota">
-          Nota: Descarga el pedido desde el botón "Descargar PDF" y envialo por WhatsApp.
-        </p>
-      </>
-    )
-  
+        <input
+          placeholder="Dirección / zona"
+          value={cliente.direccion}
+          onChange={(e) => setCliente({ ...cliente, direccion: e.target.value })}
+        />
+
+        <textarea
+          placeholder="Observación"
+          value={cliente.observacion}
+          onChange={(e) => setCliente({ ...cliente, observacion: e.target.value })}
+        />
+      </div>
+
+      <div className="acciones">
+        <button
+          type="button"
+          className="btn-secundario"
+          onClick={descargarPDF}
+        >
+          Descargar PDF
+        </button>
+
+        <button
+          type="button"
+          className="btn-limpiar"
+          onClick={limpiarPedido}
+        >
+          Limpiar pedido
+        </button>
+      </div>
+
+      <p className="nota">
+        Nota: descargá el pedido desde el botón "Descargar PDF" y envialo por WhatsApp.
+      </p>
+    </>
+  )
 
   return (
     <main className="app">
@@ -349,16 +409,23 @@ const renderPedidoContenido = () => (
             />
           </div>
 
-          <div className="filtros-marcas">
-            {marcas.map((marca) => (
-              <button
-                key={marca}
-                className={marcaSeleccionada === marca ? 'marca-activa' : ''}
-                onClick={() => setMarcaSeleccionada(marca)}
-              >
-                {marca}
-              </button>
-            ))}
+          <div className="filtro-marca-card">
+            <div className="filtro-marca-texto">
+              <span>Filtrar por marca</span>
+              <p>Elegí una marca para ver sus productos</p>
+            </div>
+
+            <select
+              className="filtro-marca-select-control"
+              value={marcaSeleccionada}
+              onChange={(e) => setMarcaSeleccionada(e.target.value)}
+            >
+              {marcas.map((marca) => (
+                <option key={marca} value={marca}>
+                  {marca === 'TODAS' ? 'Todas las marcas' : marca}
+                </option>
+              ))}
+            </select>
           </div>
 
           {Object.entries(productosPorMarca).length === 0 ? (
@@ -376,66 +443,70 @@ const renderPedidoContenido = () => (
                 </div>
 
                 <div className="productos-grid">
-                  {productos.map((producto) => (
-                    <article className="producto-card" key={producto.id}>
-                      <img
-                        loading="lazy"
-                        decoding="async"
-                        src={
-                          producto.id >= 77 && producto.id <= 173
-                            ? `${import.meta.env.BASE_URL}productos-reales/tinturas-colormaster.webp`
-                        : producto.id >= 186 && producto.id <= 242
-                            ? `${import.meta.env.BASE_URL}productos-reales/tinturas-fithocolor.webp`
-                        : producto.id >= 243 && producto.id <= 261
-                            ? `${import.meta.env.BASE_URL}productos-reales/tinturas-cielo.webp`
-                        : producto.id >= 262 && producto.id <= 320
-                            ? `${import.meta.env.BASE_URL}productos-reales/tinturas-otowil.webp`
-                        : producto.id >= 865 && producto.id <= 954
-                            ? `${import.meta.env.BASE_URL}productos-reales/tinturas-primont.webp`                              
-                            : `${import.meta.env.BASE_URL}productos-reales/${producto.id}.webp`
-                        }
-                        alt={producto.nombre}
-                        onError={(e) => {
-                          e.currentTarget.onerror = null
-                          e.currentTarget.src = producto.imagen || DISTRIBUIDORA.logo
-                        }}
-                      />                      
+                  {productos.map((producto) => {
+                    const cantidadEnCarrito = obtenerCantidadEnCarrito(producto.id)
 
-                      <p className="producto-marca">{producto.marca}</p>
-                      <h3>{producto.nombre}</h3>
+                    return (
+                      <article className="producto-card" key={producto.id}>
+                        <img
+                          loading="lazy"
+                          decoding="async"
+                          src={obtenerImagenProducto(producto)}
+                          alt={producto.nombre}
+                          onError={(e) => {
+                            e.currentTarget.onerror = null
+                            e.currentTarget.src = producto.imagen || DISTRIBUIDORA.logo
+                          }}
+                        />
 
-                      {obtenerCantidadEnCarrito(producto.id) === 0 ? (
-                        <button
-                          className="btn-agregar-producto"
-                          onClick={() => agregarProducto(producto)}
-                        >
-                         Agregar al pedido
-                        </button>
-                      ) : (
-                        <div className="producto-contador">
+                        <p className="producto-marca">{producto.marca}</p>
+                        <h3>{producto.nombre}</h3>
+
+                        {cantidadEnCarrito === 0 ? (
                           <button
                             type="button"
-                            className="btn-cantidad-producto"
-                            onClick={() => restarDesdeCatalogo(producto)}
+                            className="btn-agregar-producto"
+                            onClick={() => agregarProducto(producto)}
                           >
-                            −
+                            Agregar al pedido
                           </button>
+                        ) : (
+                          <div className="producto-contador">
+                            <button
+                              type="button"
+                              className="btn-cantidad-producto"
+                              onClick={() => restarDesdeCatalogo(producto)}
+                            >
+                              −
+                            </button>
 
-                          <div className="cantidad-producto">
-                            {obtenerCantidadEnCarrito(producto.id)} un
-                         </div>
+                            <div className="cantidad-producto-input-wrap">
+                              <input
+                                className="cantidad-producto-input"
+                                type="number"
+                                min="1"
+                                step="1"
+                                value={cantidadEnCarrito}
+                                onChange={(e) =>
+                                  actualizarCantidadDesdeCatalogo(producto, e.target.value)
+                                }
+                                onFocus={(e) => e.target.select()}
+                              />
+                              <span>un</span>
+                            </div>
 
-                          <button
-                            type="button"
-                            className="btn-cantidad-producto"
-                            onClick={() => sumarDesdeCatalogo(producto)}
-                          >
-                            +
-                          </button>
-                        </div>
-                      )}
-                    </article>
-                  ))}
+                            <button
+                              type="button"
+                              className="btn-cantidad-producto"
+                              onClick={() => sumarDesdeCatalogo(producto)}
+                            >
+                              +
+                            </button>
+                          </div>
+                        )}
+                      </article>
+                    )
+                  })}
                 </div>
               </section>
             ))
@@ -449,37 +520,38 @@ const renderPedidoContenido = () => (
       </section>
 
       <button
+        type="button"
         className="boton-pedido-mobile"
         onClick={() => setPedidoAbierto(true)}
       >
         🛒 Ver pedido ({cantidadTotalPedido})
       </button>
 
-{pedidoAbierto && (
-  <div
-    className="pedido-modal-overlay activo"
-    onClick={() => setPedidoAbierto(false)}
-  >
-    <div
-      className="pedido-modal"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <div className="pedido-modal-header">
-        <h2>Pedido</h2>
-
-        <button
-          type="button"
-          className="cerrar-pedido"
+      {pedidoAbierto && (
+        <div
+          className="pedido-modal-overlay activo"
           onClick={() => setPedidoAbierto(false)}
         >
-          Cerrar
-        </button>
-      </div>
+          <div
+            className="pedido-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="pedido-modal-header">
+              <h2>Pedido</h2>
 
-      {renderPedidoContenido()}
-    </div>
-  </div>
-)}
+              <button
+                type="button"
+                className="cerrar-pedido"
+                onClick={() => setPedidoAbierto(false)}
+              >
+                Cerrar
+              </button>
+            </div>
+
+            {renderPedidoContenido()}
+          </div>
+        </div>
+      )}
     </main>
   )
 }
