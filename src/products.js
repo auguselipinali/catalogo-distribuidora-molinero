@@ -366,12 +366,12 @@ export const productosIniciales = [
     nombre: "Acondicionador Cremoso Acido 5000ml",
     imagen: rutaImagen("productos/marca-colormaster.svg"),
   },
-  {
+/*   {
     id: 62,
     marca: "COLORMASTER",
     nombre: "Color Express - Coloración Instantánea sin Amoníaco 3 x 30ml",
     imagen: rutaImagen("productos/marca-colormaster.svg"),
-  },
+  }, */
   {
     id: 63,
     marca: "COLORMASTER",
@@ -3017,13 +3017,13 @@ export const productosIniciales = [
     nombre: "BANDAS DE TELA NO TEJIDA PARA DEPILACION PACK X 8",
     imagen: rutaImagen("productos/marca-dermogreen.svg"),
   },
-  {
+/*   {
     id: 443,
     marca: "DERMOGREEN",
     categoria: "CERAS DEPILATORIAS",
     nombre: "CERA DEP.C/MIEL Y CAMOMILLA Bandeja 400g",
     imagen: rutaImagen("productos/marca-dermogreen.svg"),
-  },
+  }, */
   {
     id: 444,
     marca: "DERMOGREEN",
@@ -3038,13 +3038,13 @@ export const productosIniciales = [
     nombre: "CERA DEP.C/MIEL Y CAMOMILLA Hojalata 200g",
     imagen: rutaImagen("productos/marca-dermogreen.svg"),
   },
-  {
+/*   {
     id: 446,
     marca: "DERMOGREEN",
     categoria: "CERAS DEPILATORIAS",
     nombre: "CERA DEP.C/ORO Y JALEA REAL Hojalata 200g",
     imagen: rutaImagen("productos/marca-dermogreen.svg"),
-  },
+  }, */
   {
     id: 447,
     marca: "DERMOGREEN",
@@ -3059,13 +3059,13 @@ export const productosIniciales = [
     nombre: "CERA DEP.VEGETAL C/A.VERA - APTO MICROONDAS Pote 150g",
     imagen: rutaImagen("productos/marca-dermogreen.svg"),
   },
-  {
+/*   {
     id: 449,
     marca: "DERMOGREEN",
     categoria: "CERAS DEPILATORIAS",
     nombre: "CERA DEP.VEGETAL C/ALOE VERA Bandeja 400g",
     imagen: rutaImagen("productos/marca-dermogreen.svg"),
-  },
+  }, */
   {
     id: 450,
     marca: "DERMOGREEN",
@@ -3213,13 +3213,13 @@ export const productosIniciales = [
     nombre: "CREMA MANOS Y CUERPO VAINILLA - SWEET CREAM Pomo 60g",
     imagen: rutaImagen("productos/marca-dermogreen.svg"),
   },
-  {
+/*   {
     id: 471,
     marca: "DERMOGREEN",
     categoria: "CREMAS PARA MANOS Y CUERPO",
     nombre: "GIFTBOX CREMA PARA MANOS Y CUERPO 3 x 60g",
     imagen: rutaImagen("productos/marca-dermogreen.svg"),
-  },
+  }, */
   {
     id: 472,
     marca: "DERMOGREEN",
@@ -3297,7 +3297,7 @@ export const productosIniciales = [
     nombre: "JABON LIQUIDO GREEN TEA bomba 250ml",
     imagen: rutaImagen("productos/marca-dermogreen.svg"),
   },
-  {
+/*   {
     id: 483,
     marca: "DERMOGREEN",
     categoria: "LECHE PARA MANOS Y CUERPO - ORGANICS",
@@ -3317,8 +3317,8 @@ export const productosIniciales = [
     categoria: "LECHE PARA MANOS Y CUERPO - ORGANICS",
     nombre: "LECHE REAFIRMANTE ARGAN Y OLIVA 500ML",
     imagen: rutaImagen("productos/marca-dermogreen.svg"),
-  },
-  {
+  }, */
+/*   {
     id: 486,
     marca: "DERMOGREEN",
     categoria: "PEINES",
@@ -3338,7 +3338,7 @@ export const productosIniciales = [
     categoria: "PEINES",
     nombre: "PEINE PERMANENTE/RULOS CAREY 1 un",
     imagen: rutaImagen("productos/marca-dermogreen.svg"),
-  },
+  }, */
   {
     id: 489,
     marca: "MARY BOSQUES",
@@ -4934,12 +4934,12 @@ export const productosIniciales = [
     nombre: "Bomba Dosificadora p/ Shampoo y Conditioner 900ml",
     imagen: rutaImagen("productos/marca-caviar.svg"),
   },
-  {
+/*   {
     id: 717,
     marca: "CAVIAR",
     nombre: "Caviar Plex Home Ritual Conditioner | Step Nº 3 230ml",
     imagen: rutaImagen("productos/marca-caviar.svg"),
-  },
+  }, */
   {
     id: 718,
     marca: "CAVIAR",
@@ -5234,12 +5234,12 @@ export const productosIniciales = [
     nombre: "AGUAS OXIDANTES",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   }, */
-  {
+/*   {
     id: 767,
     marca: "FRILAYP",
     nombre: "BALSAMO PARA LA PIEL Y EL CABELLO",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
-  },
+  }, */
   {
     id: 768,
     marca: "FRILAYP",
@@ -5390,30 +5390,30 @@ export const productosIniciales = [
     nombre: "CREMA OXIDANTE 40 vol x 920 cc",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
-  {
+ /*  {
     id: 793,
     marca: "FRILAYP",
     nombre: "CREMAS DE PEINAR",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
-  },
-  {
+  }, */
+/*   {
     id: 794,
     marca: "FRILAYP",
     nombre: "CREMAS OXIDANTES",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
-  },
+  }, */
   {
     id: 795,
     marca: "FRILAYP",
     nombre: "CRONOGRAMA CAPILAR",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
-  {
+/*   {
     id: 796,
     marca: "FRILAYP",
     nombre: "FIJADOR DE COLOR",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
-  },
+  }, */
   {
     id: 797,
     marca: "FRILAYP",
@@ -5432,18 +5432,18 @@ export const productosIniciales = [
     nombre: "FIJADOR DE COLOR x 7 cc",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
-  {
+/*   {
     id: 800,
     marca: "FRILAYP",
     nombre: "GEL MODELADOR",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
-  },
-  {
+  }, */
+/*   {
     id: 801,
     marca: "FRILAYP",
     nombre: "HIDRATACIÓN - NUTRICIÓN - REGENERACIÓN",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
-  },
+  }, */
   {
     id: 802,
     marca: "FRILAYP",
@@ -5498,12 +5498,12 @@ export const productosIniciales = [
     nombre: "PROTECTORTERMICO x 220 cc",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
-  {
+ /*  {
     id: 811,
     marca: "FRILAYP",
     nombre: "REVELADOR",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
-  },
+  }, */
   {
     id: 812,
     marca: "FRILAYP",
@@ -5528,12 +5528,12 @@ export const productosIniciales = [
     nombre: "RULOS OLEO DE PALTA Y ACIDO HIALURONICO X 200CC",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
-  {
+/*   {
     id: 816,
     marca: "FRILAYP",
     nombre: "SERUM & BOOSTER",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
-  },
+  }, */
   {
     id: 817,
     marca: "FRILAYP",
@@ -5558,12 +5558,12 @@ export const productosIniciales = [
     nombre: "SERUM REPARADOR SEMI DI LINO x 50 cc c/valv,",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
-  {
+/*   {
     id: 821,
     marca: "FRILAYP",
     nombre: "SHAMPOO",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
-  },
+  }, */
   {
     id: 822,
     marca: "FRILAYP",
@@ -5654,12 +5654,12 @@ export const productosIniciales = [
     nombre: "SHOCK DE KERATINA x 220 cc",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
-  {
+/*   {
     id: 837,
     marca: "FRILAYP",
     nombre: "SILVER",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
-  },
+  }, */
   {
     id: 838,
     marca: "FRILAYP",
@@ -5672,12 +5672,12 @@ export const productosIniciales = [
     nombre: "SKIN & HAIR x 50 ml CON ACEITE DE COCO",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
-  {
+/*   {
     id: 840,
     marca: "FRILAYP",
     nombre: "SPRAY CAPILAR",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
-  },
+  }, */
   {
     id: 841,
     marca: "FRILAYP",
@@ -5714,12 +5714,12 @@ export const productosIniciales = [
     nombre: "TRATAMIENTO SEMI DI LINO x 240 GRS",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
-  {
+/*   {
     id: 847,
     marca: "FRILAYP",
     nombre: "TRATAMIENTOS CAPILARES",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
-  },
+  }, */
   {
     id: 848,
     marca: "VARIOS",
@@ -7373,4 +7373,28 @@ export const productosIniciales = [
   nombre: "Scrub de labios IWoo Chocolate - 10 grs.",
   imagen: rutaImagen("productos/marca-otowil.svg"),
 },
+{
+  id: 1101,
+  marca: "MABELL ROMMER",
+  nombre: "Oxidante Mabell Rommer x100cc 9 volúmenes CAJA X40U",
+  imagen: rutaImagen("productos/marca-mabell-rommer.svg"),
+},
+{
+  id: 1102,
+  marca: "MABELL ROMMER",
+  nombre: "Oxidante Mabell Rommer x100cc 20 volúmenes CAJA X40U",
+  imagen: rutaImagen("productos/marca-mabell-rommer.svg"),
+},
+{
+  id: 1103,
+  marca: "MABELL ROMMER",
+  nombre: "Oxidante Mabell Rommer x100cc 30 volúmenes CAJA X40U",
+  imagen: rutaImagen("productos/marca-mabell-rommer.svg"),
+},
+{
+  id: 1104,
+  marca: "MABELL ROMMER",
+  nombre: "Oxidante Mabell Rommer x100cc 40 volúmenes CAJA X40U",
+  imagen: rutaImagen("productos/marca-mabell-rommer.svg"),
+}
 ]
