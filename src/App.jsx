@@ -203,6 +203,62 @@ function App() {
     return true
   }
 
+async function guardarPedidoEnGoogleSheets() {
+  if (!DISTRIBUIDORA.googleSheetsUrl) {
+    alert('No hay URL de Google Sheets configurada.')
+    return
+  }
+
+  const pedidoId = `PED-${Date.now()}`
+
+  const datosPedido = {
+    pedidoId,
+    fecha: new Date().toLocaleString('es-AR'),
+    cliente: {
+      nombre: cliente.nombre.trim(),
+      telefono: cliente.telefono.trim(),
+      direccion: cliente.direccion.trim(),
+      observacion: cliente.observacion.trim(),
+    },
+    productos: carrito.map((item) => ({
+      marca: item.marca,
+      nombre: item.nombre,
+      cantidad: item.cantidad,
+    })),
+  }
+
+  let iframe = document.querySelector('iframe[name="google-sheets-iframe"]')
+
+  if (!iframe) {
+    iframe = document.createElement('iframe')
+    iframe.name = 'google-sheets-iframe'
+    iframe.style.display = 'none'
+    document.body.appendChild(iframe)
+  }
+
+  const form = document.createElement('form')
+  form.method = 'POST'
+  form.action = DISTRIBUIDORA.googleSheetsUrl
+  form.target = 'google-sheets-iframe'
+  form.style.display = 'none'
+
+  const input = document.createElement('input')
+  input.type = 'hidden'
+  input.name = 'payload'
+  input.value = JSON.stringify(datosPedido)
+
+  form.appendChild(input)
+  document.body.appendChild(form)
+
+  form.submit()
+
+  setTimeout(() => {
+    form.remove()
+  }, 1000)
+
+  console.log('Pedido enviado a Google Sheets:', datosPedido)
+}
+
   async function crearPDF() {
     if (!validarPedido()) return null
 
@@ -268,13 +324,15 @@ function App() {
     return doc
   }
 
-  async function descargarPDF() {
-    const doc = await crearPDF()
-    if (!doc) return
+async function descargarPDF() {
+  const doc = await crearPDF()
+  if (!doc) return
 
-    const nombreCliente = cliente.nombre.trim()
-    doc.save(`pedido-${nombreCliente}.pdf`)
-  }
+  await guardarPedidoEnGoogleSheets()
+
+  const nombreCliente = cliente.nombre.trim()
+  doc.save(`pedido-${nombreCliente}.pdf`)
+}
 
   const renderPedidoContenido = () => (
     <>
