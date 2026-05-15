@@ -504,27 +504,7 @@ function App() {
       </header>
 
 <section className="promos-section">
-  <div className="banner-carousel">
-    <div className="banner-slide">
-      <img
-        className="banner-image"
-        src={rutaAsset(bannersPromocionales[bannerActual])}
-        alt={`Banner promocional ${bannerActual + 1}`}
-      />
-    </div>
 
-    <div className="banner-indicadores">
-      {bannersPromocionales.map((_, index) => (
-        <button
-          key={index}
-          type="button"
-          className={index === bannerActual ? 'activo' : ''}
-          onClick={() => setBannerActual(index)}
-          aria-label={`Ver banner ${index + 1}`}
-        />
-      ))}
-    </div>
-  </div>
 
   <div className="marcas-carousel">
           <div className="marcas-carousel-header">
