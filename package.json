@@ -15,6 +15,7 @@
     "jspdf": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-router-dom": "^7.15.1",
     "vite": "latest"
   },
   "devDependencies": {

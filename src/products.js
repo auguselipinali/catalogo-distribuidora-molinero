@@ -3973,7 +3973,7 @@ export const productosIniciales = [
     id: 579,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "BIO BALANCE",
-    nombre: "ACONDICIONADOR BIO BALANCE RULOS 144un x 20grs",
+    nombre: "ACONDICIONADOR BIO BALANCE RULOS x 20grs",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
@@ -3987,7 +3987,7 @@ export const productosIniciales = [
     id: 581,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "BIO BALANCE",
-    nombre: "CREMA DE PEINAR BIO BALANCE RULOS 144un x 20g",
+    nombre: "CREMA DE PEINAR BIO BALANCE RULOS x 20g",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
@@ -4015,7 +4015,7 @@ export const productosIniciales = [
     id: 585,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "BIO BALANCE",
-    nombre: "SHAMPOO BIO BALANCE RULOS 144un x 20grs",
+    nombre: "SHAMPOO BIO BALANCE RULOS x 20grs",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
@@ -4043,7 +4043,7 @@ export const productosIniciales = [
     id: 589,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "BIO BALANCE",
-    nombre: "TRATAMIENTO BIO BALANCE RULOS 144un x 20g",
+    nombre: "TRATAMIENTO BIO BALANCE RULOS x 20g",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
@@ -4092,7 +4092,7 @@ export const productosIniciales = [
     id: 596,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "BTX",
-    nombre: "TRATAMIENTO BTX 144un x 20grs",
+    nombre: "TRATAMIENTO BTX x 20grs",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
@@ -4260,7 +4260,7 @@ export const productosIniciales = [
     id: 620,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "COLOR PLEX",
-    nombre: "TRAT AMIENTOREPARAD PLEX 144 un x 20g",
+    nombre: "TRAT AMIENTOREPARAD PLEX x 20g",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
@@ -4351,7 +4351,7 @@ export const productosIniciales = [
     id: 633,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "MAROC OIL",
-    nombre: "TRATAMIENTO MAROC OIL 144un x 20grs",
+    nombre: "TRATAMIENTO MAROC OIL x 20grs",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
@@ -4428,7 +4428,7 @@ export const productosIniciales = [
     id: 644,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "NUTRI REPARADORA",
-    nombre: "TARTAMIENTO NUTRI REP. 144un x 20grs",
+    nombre: "TARTAMIENTO NUTRI REP. x 20grs",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
@@ -4533,7 +4533,7 @@ export const productosIniciales = [
     id: 659,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "QUERATION",
-    nombre: "TRATAMIENTO QUERATION 144un x 20grs",
+    nombre: "TRATAMIENTO QUERATION x 20grs",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
@@ -4645,7 +4645,7 @@ export const productosIniciales = [
     id: 675,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "SILVER",
-    nombre: "TRATRAMIENTO SILVER 144un x 20grs",
+    nombre: "TRATRAMIENTO SILVER x 20grs",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
@@ -4715,7 +4715,7 @@ export const productosIniciales = [
     id: 685,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "SUPER ACIDO",
-    nombre: "TRATAMIENTO SUPER ACIDO 144un x 20grs",
+    nombre: "TRATAMIENTO SUPER ACIDO x 20grs",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
@@ -4771,7 +4771,7 @@ export const productosIniciales = [
     id: 693,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "TOP FINISH",
-    nombre: "GEL EFECTO HUMEDO TF 144un x 20g",
+    nombre: "GEL EFECTO HUMEDO TF x 20g",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
@@ -4925,7 +4925,7 @@ export const productosIniciales = [
     id: 715,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "ZID",
-    nombre: "TRATAMIENTO ZID 144un x 20g",
+    nombre: "TRATAMIENTO ZID x 20g",
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
