@@ -7396,5 +7396,11 @@ export const productosIniciales = [
   marca: "MABELL ROMMER",
   nombre: "Oxidante Mabell Rommer x100cc 40 volúmenes CAJA X40U",
   imagen: rutaImagen("productos/marca-mabell-rommer.svg"),
+},
+{
+  id: 1105,
+  marca: "FRILAYP",
+  nombre: "Serum Nocturno x80ML",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
 }
 ]
