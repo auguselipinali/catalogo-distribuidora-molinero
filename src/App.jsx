@@ -225,7 +225,7 @@ function App() {
   }
 
   function obtenerImagenProducto(producto) {
-    if (producto.id >= 77 && producto.id <= 173) {
+    if ((producto.id >= 77 && producto.id <= 173) || producto.id === 1106 || producto.id === 1107) {
       return rutaAsset('productos-reales/tinturas-colormaster.webp')
     }
 
