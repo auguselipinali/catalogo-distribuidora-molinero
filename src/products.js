@@ -7402,5 +7402,19 @@ export const productosIniciales = [
   marca: "FRILAYP",
   nombre: "Serum Nocturno x80ML",
   imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1106,
+  marca: "TINTURAS COLORMASTER",
+  categoria: "TINTURAS",
+  nombre: "Tintura COLORMASTER 222 - CHERRY",
+  imagen: rutaImagen("productos/tinturas/colormaster-0-11-intensificador-verde.svg"),
+},
+{
+  id: 1107,
+  marca: "TINTURAS COLORMASTER",
+  categoria: "TINTURAS",
+  nombre: "Tintura COLORMASTER 222+R - CHERRY RED",
+  imagen: rutaImagen("productos/tinturas/colormaster-0-11-intensificador-verde.svg"),
 }
 ]
