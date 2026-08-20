@@ -5818,7 +5818,7 @@ export const productosIniciales = [
   },
   {
     id: 864,
-    marca: "ROJO+ROJO",
+    marca: "MALAIKA",
     nombre: "Ampolla ROJO+ROJO",
     imagen: rutaImagen("productos/marca-rojo-rojo.svg"),
   },
@@ -7440,5 +7440,17 @@ export const productosIniciales = [
   marca: "TINTURAS PRIMONT",
   nombre: "Tintura Primont 10/21",
   imagen: rutaImagen("productos/tinturas-primont.svg"),
+},
+{
+  id: 1112,
+  marca: "MALAIKA",
+  nombre: "Ampolla de BIOTINA",
+  imagen: rutaImagen("productos/marca-rojo-rojo.svg"),
+},
+{
+  id: 1113,
+  marca: "DERMOGREEN",
+  nombre: "Protector Térmico x300g",
+  imagen: rutaImagen("productos/marca-dermogreen.svg"),
 }
 ]
