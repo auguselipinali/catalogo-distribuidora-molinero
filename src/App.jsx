@@ -241,7 +241,7 @@ function App() {
       return rutaAsset('productos-reales/tinturas-otowil.webp')
     }
 
-    if (producto.id >= 865 && producto.id <= 954) {
+    if ((producto.id >= 865 && producto.id <= 954) || (producto.id >= 1108 && producto.id <= 1111)) {
       return rutaAsset('productos-reales/tinturas-primont.webp')
     }
 

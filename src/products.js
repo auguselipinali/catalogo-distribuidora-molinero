@@ -7416,5 +7416,29 @@ export const productosIniciales = [
   categoria: "TINTURAS",
   nombre: "Tintura COLORMASTER 222+R - CHERRY RED",
   imagen: rutaImagen("productos/tinturas/colormaster-0-11-intensificador-verde.svg"),
+},
+{
+  id: 1108,
+  marca: "TINTURAS PRIMONT",
+  nombre: "Tintura Primont 7/21",
+  imagen: rutaImagen("productos/tinturas-primont.svg"),
+},
+{
+  id: 1109,
+  marca: "TINTURAS PRIMONT",
+  nombre: "Tintura Primont 8/21",
+  imagen: rutaImagen("productos/tinturas-primont.svg"),
+},
+{
+  id: 1110,
+  marca: "TINTURAS PRIMONT",
+  nombre: "Tintura Primont 9/21",
+  imagen: rutaImagen("productos/tinturas-primont.svg"),
+},
+{
+  id: 1111,
+  marca: "TINTURAS PRIMONT",
+  nombre: "Tintura Primont 10/21",
+  imagen: rutaImagen("productos/tinturas-primont.svg"),
 }
 ]
