@@ -245,6 +245,10 @@ function App() {
       return rutaAsset('productos-reales/tinturas-primont.webp')
     }
 
+    if (producto.id >= 1114 && producto.id <= 1162) {
+      return rutaAsset('productos-reales/tinturas-fidelite-sin-amoniaco.webp')
+    }
+
     return rutaAsset(`productos-reales/${producto.id}.webp`)
   }
 
