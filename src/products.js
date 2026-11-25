@@ -8100,5 +8100,23 @@ export const productosIniciales = [
   marca: "FRILAYP",
   nombre: "SHAMPOO PH ÁCIDO X 1100 ml",
   imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1207,
+  marca: "FRILAYP",
+  nombre: "ACONDICIONADOR NEUTRO X 1100 ml",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1208,
+  marca: "FRILAYP",
+  nombre: "ACONDICIONADOR HYDRA X 1100 ml",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1209,
+  marca: "FRILAYP",
+  nombre: "ACONDICIONADOR PH ÁCIDO X 1100 ml",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
 }
 ]
