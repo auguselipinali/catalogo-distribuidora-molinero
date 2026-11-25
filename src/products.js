@@ -5315,13 +5315,13 @@ export const productosIniciales = [
   {
     id: 780,
     marca: "FRILAYP",
-    nombre: "CREMA OXIDANTE 20 vol x 920 cc ALMENDRA",
+    nombre: "CREMA OXIDANTE 20 vol x 990 cc ALMENDRA",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
   {
     id: 781,
     marca: "FRILAYP",
-    nombre: "CREMA OXIDANTE 20 vol x 920 cc HIERBAS",
+    nombre: "CREMA OXIDANTE 20 vol x 990 cc HIERBAS",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
   {
@@ -5357,13 +5357,13 @@ export const productosIniciales = [
   {
     id: 787,
     marca: "FRILAYP",
-    nombre: "CREMA OXIDANTE 30 vol x 920 cc ALMENDRA",
+    nombre: "CREMA OXIDANTE 30 vol x 990 cc ALMENDRA",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
   {
     id: 788,
     marca: "FRILAYP",
-    nombre: "CREMA OXIDANTE 30 vol x 920 cc HIERBAS",
+    nombre: "CREMA OXIDANTE 30 vol x 990 cc HIERBAS",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
   {
@@ -5387,7 +5387,7 @@ export const productosIniciales = [
   {
     id: 792,
     marca: "FRILAYP",
-    nombre: "CREMA OXIDANTE 40 vol x 920 cc",
+    nombre: "CREMA OXIDANTE 40 vol x 990 cc",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
  /*  {
@@ -8154,5 +8154,11 @@ export const productosIniciales = [
   marca: "FRILAYP",
   nombre: "AMPOLLA NUTRICIÓN FRILAYP 12 x 20 ml",
   imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1217,
+  marca: "EMYNENT",
+  nombre: "SECA ESMALTE ABRILLANTADOR DE UÑAS X 110 grs",
+  imagen: rutaImagen("productos/marca-emynent.svg"),
 }
 ]
