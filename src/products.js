@@ -8102,12 +8102,6 @@ export const productosIniciales = [
   imagen: rutaImagen("productos/marca-frilayp.svg"),
 },
 {
-  id: 1207,
-  marca: "FRILAYP",
-  nombre: "ACONDICIONADOR NEUTRO X 1100 ml",
-  imagen: rutaImagen("productos/marca-frilayp.svg"),
-},
-{
   id: 1208,
   marca: "FRILAYP",
   nombre: "ACONDICIONADOR HYDRA X 1100 ml",
