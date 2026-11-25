@@ -3382,20 +3382,6 @@ export const productosIniciales = [
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
-    id: 495,
-    marca: "MARY BOSQUES",
-    categoria: "DECOLORANTES Y OXIDANTES",
-    nombre: "Crema Oxidante-con extracto de aloe vera-20 vol.-sobre x 47 ml.-caja x 80 u.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
-    id: 496,
-    marca: "MARY BOSQUES",
-    categoria: "DECOLORANTES Y OXIDANTES",
-    nombre: "Crema Oxidante-con extracto de aloe vera-30 vol.-sobre x 47 ml.-caja x 80 u.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
     id: 497,
     marca: "MARY BOSQUES",
     categoria: "DOYPACK",
