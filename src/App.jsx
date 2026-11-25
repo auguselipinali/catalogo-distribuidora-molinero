@@ -254,6 +254,10 @@ function App() {
       return rutaAsset('productos-reales/tinturas-frilayp.webp')
     }
 
+    if (producto.id >= 1204 && producto.id <= 1206) {
+      return rutaAsset('productos-reales/shampoo-frilayp-1100.webp')
+    }
+
     return rutaAsset(`productos-reales/${producto.id}.webp`)
   }
 

@@ -8082,5 +8082,23 @@ export const productosIniciales = [
   categoria: "TINTURAS",
   nombre: "Tintura FRILAYP 11.21 - Super Aclarante Malva Ceniza",
   imagen: rutaImagen("productos/tinturas/frilayp-11-21-super-aclarante-malva-ceniza.svg"),
+},
+{
+  id: 1204,
+  marca: "FRILAYP",
+  nombre: "SHAMPOO NEUTRO X 1100 ml",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1205,
+  marca: "FRILAYP",
+  nombre: "SHAMPOO HYDRA X 1100 ml",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1206,
+  marca: "FRILAYP",
+  nombre: "SHAMPOO PH ÁCIDO X 1100 ml",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
 }
 ]
