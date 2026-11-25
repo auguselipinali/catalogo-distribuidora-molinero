@@ -249,6 +249,10 @@ function App() {
       return rutaAsset('productos-reales/tinturas-fidelite-sin-amoniaco.webp')
     }
 
+    if (producto.id >= 1163 && producto.id <= 1203) {
+      return rutaAsset('productos-reales/tinturas-frilayp.webp')
+    }
+
     return rutaAsset(`productos-reales/${producto.id}.webp`)
   }
 
