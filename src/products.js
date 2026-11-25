@@ -8112,5 +8112,47 @@ export const productosIniciales = [
   marca: "FRILAYP",
   nombre: "ACONDICIONADOR PH ÁCIDO X 1100 ml",
   imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1210,
+  marca: "FRILAYP",
+  nombre: "POLVO DECOLORANTE X 50 g",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1211,
+  marca: "FRILAYP",
+  nombre: "POLVO DECOLORANTE X 700 g",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1212,
+  marca: "FRILAYP",
+  nombre: "KERATINA ANTI FRIZZ X 200 ml",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1213,
+  marca: "FRILAYP",
+  nombre: "AMPOLLA BTX FRILAYP 12 x 20 ml",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1214,
+  marca: "FRILAYP",
+  nombre: "AMPOLLA HIDRATACIÓN FRILAYP 12 x 20 ml",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1215,
+  marca: "FRILAYP",
+  nombre: "AMPOLLA REGENERACIÓN FRILAYP 12 x 20 ml",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
+},
+{
+  id: 1216,
+  marca: "FRILAYP",
+  nombre: "AMPOLLA NUTRICIÓN FRILAYP 12 x 20 ml",
+  imagen: rutaImagen("productos/marca-frilayp.svg"),
 }
 ]
