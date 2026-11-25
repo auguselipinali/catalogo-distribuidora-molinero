@@ -3487,24 +3487,10 @@ export const productosIniciales = [
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
-    id: 512,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "3' Minutos-tratamiento reparador intensivo-pote x 200 g.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
     id: 513,
     marca: "MARY BOSQUES",
     categoria: "TRATAMIENTOS Y ACONDICIONADORES",
     nombre: "3' Minutos-tratamiento reparador intensivo-sobre x 20 g.-caja x 36 u.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
-    id: 514,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "60 Segundos-tratamiento reparador diario-pote x 200 g.-",
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
@@ -3564,13 +3550,6 @@ export const productosIniciales = [
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
-    id: 523,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "Botoxx Capilar-reestructurante y rejuvenecedor-pote x 200 g.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
     id: 524,
     marca: "MARY BOSQUES",
     categoria: "TRATAMIENTOS Y ACONDICIONADORES",
@@ -3585,13 +3564,6 @@ export const productosIniciales = [
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
-    id: 526,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "Cicatri Total-pote x 200 g.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
     id: 527,
     marca: "MARY BOSQUES",
     categoria: "TRATAMIENTOS Y ACONDICIONADORES",
@@ -3603,13 +3575,6 @@ export const productosIniciales = [
     marca: "MARY BOSQUES",
     categoria: "TRATAMIENTOS Y ACONDICIONADORES",
     nombre: "Colágeno Capilar-sobre x 20 g.-caja x 36 u.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
-    id: 529,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "Crema antiamarillos-pote x 200 g.-",
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
@@ -3634,24 +3599,10 @@ export const productosIniciales = [
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
-    id: 533,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "Crema de Argan-regeneración capilar con células madre-pote x 200 g.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
     id: 534,
     marca: "MARY BOSQUES",
     categoria: "TRATAMIENTOS Y ACONDICIONADORES",
     nombre: "Crema de Argan-regeneración capilar con células madre-sobre x 20 g.-caja x 36 u.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
-    id: 535,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "Crema de Coco y Almendras-pote x 200 g.-",
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
@@ -3683,13 +3634,6 @@ export const productosIniciales = [
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
-    id: 540,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "Keratina en Crema-keratinizacion capilar-pote x 200 g.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
     id: 541,
     marca: "MARY BOSQUES",
     categoria: "TRATAMIENTOS Y ACONDICIONADORES",
@@ -3711,24 +3655,10 @@ export const productosIniciales = [
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
-    id: 544,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "Lifting en crema-pote x 200 g.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
     id: 545,
     marca: "MARY BOSQUES",
     categoria: "TRATAMIENTOS Y ACONDICIONADORES",
     nombre: "Lifting en crema-sobre x 20 g.-caja x 36 u.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
-    id: 546,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "Oleo Keratina y Argan EN CREMA-ungüento capilar-pote x 200 g.-",
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
@@ -3760,24 +3690,10 @@ export const productosIniciales = [
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
-    id: 551,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "Palta en Crema-pote x 200 g.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
     id: 552,
     marca: "MARY BOSQUES",
     categoria: "TRATAMIENTOS Y ACONDICIONADORES",
     nombre: "Palta en Crema-sobre x 20 g.-caja x 36 u.-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
-    id: 553,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "Pro Vitamina B5-pote x 200 g.-",
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
@@ -3806,13 +3722,6 @@ export const productosIniciales = [
     marca: "MARY BOSQUES",
     categoria: "TRATAMIENTOS Y ACONDICIONADORES",
     nombre: "Shock Acido Express-restaurador instantáneo-sin enjuague-sobre x 10 g-caja x 36 u-",
-    imagen: rutaImagen("productos/marca-mary-bosques.svg"),
-  },
-  {
-    id: 558,
-    marca: "MARY BOSQUES",
-    categoria: "TRATAMIENTOS Y ACONDICIONADORES",
-    nombre: "Shock Acido-equilibrante post tratamientos quimicos-pote x 200 g.-",
     imagen: rutaImagen("productos/marca-mary-bosques.svg"),
   },
   {
