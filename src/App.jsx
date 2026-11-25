@@ -21,6 +21,7 @@ const marcasCarrusel = [
   { nombre: 'FRILAYP', logo: 'productos/marca-frilayp.png' },
   { nombre: 'MABELL ROMMER', logo: 'productos/marca-mabell-rommer.png' },
   { nombre: 'MARY BOSQUES', logo: 'productos/marca-mary-bosques.png' },
+  { nombre: 'NOV', logo: 'productos/marca-nov.png' },
   { nombre: 'OTOWIL', logo: 'productos/marca-otowil.png' },
   { nombre: 'PRIMONT', logo: 'productos/marca-primont-professional.png' },
   { nombre: 'TONALEG', logo: 'productos/marca-tonaleg.png' },
