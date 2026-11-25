@@ -5519,7 +5519,7 @@ export const productosIniciales = [
   {
     id: 814,
     marca: "FRILAYP",
-    nombre: "REVELADOR x 920 cc",
+    nombre: "REVELADOR x 990 cc",
     imagen: rutaImagen("productos/marca-frilayp.svg"),
   },
   {
