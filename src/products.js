@@ -4110,13 +4110,6 @@ export const productosIniciales = [
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
-    id: 614,
-    marca: "PRIMONT PROFESSIONAL",
-    categoria: "COLOR",
-    nombre: "TINTURAS 60",
-    imagen: rutaImagen("productos/marca-primont-professional.svg"),
-  },
-  {
     id: 615,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "COLOR PLEX",
