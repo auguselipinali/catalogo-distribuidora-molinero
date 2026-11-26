@@ -4257,13 +4257,6 @@ export const productosIniciales = [
     imagen: rutaImagen("productos/marca-primont-professional.svg"),
   },
   {
-    id: 636,
-    marca: "PRIMONT PROFESSIONAL",
-    categoria: "NAT.COLOR GLOSS",
-    nombre: "N.C.GLOSS OXIG.ESTABILIZADA 13 VOL INTENSO X 120 C.C.",
-    imagen: rutaImagen("productos/marca-primont-professional.svg"),
-  },
-  {
     id: 637,
     marca: "PRIMONT PROFESSIONAL",
     categoria: "NAT.COLOR GLOSS",
